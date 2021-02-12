@@ -1,6 +1,6 @@
 <center>
 
-![WhatTheHex](assets/static/images/wth-logo.png =300x100)
+![WhatTheHex](priv/wth-logo.png =300x100)
 
 </center>
 
