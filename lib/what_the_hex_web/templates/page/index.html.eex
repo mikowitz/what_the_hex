@@ -1,38 +1,35 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+  <h1><%= gettext "Welcome to %{name}!", name: "WhatTheHex" %></h1>
 </section>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
-</section>
+<h2>WhatTheHex?</h2>
+
+<p>
+  Add an Elixir library name to the URL to be redirected to its repository page.
+</p>
+
+<h3>For example</h3>
+
+<ul>
+  <%= for package <- ~w(phoenix poison nerves hackney) do %>
+    <% {path, url} = link_for_package(package) %>
+    <li><%= link path, to: url %></li>
+  <% end %>
+</ul>
+
+<h2>HowTheHex?</h2>
+
+<ol>
+  <li>Make a request to the <a href="https://hex.pm">Hex.pm</a> API</li>
+  <li>Look for a GitHub link in the metadata</li>
+  <li>Look for a Hexdocs link in the metadata</li>
+  <li>Look for a Hex.pm link in the metadata</li>
+  <li>Redirect to the first link found</li>
+</ol>
+
+<h2>WhyTheHex?</h2>
+
+<p>
+Inspiration drawn from <a href="https://gem.wtf">gem.wtf</a> and the prior art
+listed on that page
+</p>
