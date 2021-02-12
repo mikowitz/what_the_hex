@@ -1,6 +1,6 @@
 <center>
 
-![WhatTheHex](priv/wth-logo.png)
+![WhatTheHex](assets/static/images/wth-logo-for-readme.png)
 
 </center>
 
