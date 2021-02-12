@@ -39,10 +39,14 @@ h2 {
   padding-top: 20px;
 }
 
-body {
+body, .phx-hero {
   background: #eef;
 }
 
 hr {
   border-top-color: #ddd;
+}
+
+.phx-hero img {
+  max-height: 100px;
 }

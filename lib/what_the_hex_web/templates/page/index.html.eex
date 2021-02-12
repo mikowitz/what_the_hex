@@ -1,5 +1,5 @@
 <section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "WhatTheHex" %></h1>
+  <img src="<%= Routes.static_path(@conn, "/images/wth-logo.png") %>" alt="WTH logo" />
 </section>
 
 <h2>WhatTheHex?</h2>
