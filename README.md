@@ -10,10 +10,10 @@ Add an Elixir library name to the URL to be redirected to its repository page.
 
 ### For example
 
-* [what-the-hex.herokuapp.com/phoenix](https://what-the-hex.herokupapp.com/phoenix)
-* [what-the-hex.herokuapp.com/poison](https://what-the-hex.herokupapp.com/poison)
-* [what-the-hex.herokuapp.com/nerves](https://what-the-hex.herokupapp.com/nerves)
-* [what-the-hex.herokuapp.com/hackney](https://what-the-hex.herokupapp.com/hackney)
+* [wthex.net/phoenix](https://wthex.net/phoenix)
+* [wthex.net/poison](https://wthex.net/poison)
+* [wthex.net/nerves](https://wthex.net/nerves)
+* [wthex.net/hackney](https://wthex.net/hackney)
 
 ## HowTheHex?
 
@@ -27,6 +27,10 @@ Add an Elixir library name to the URL to be redirected to its repository page.
 
 Inspiration drawn from <a href="https://gem.wtf">gem.wtf</a> and the prior art
 listed on that page
+
+## WhereTheHex?
+
+Source code lives on [GitHub](https://github.com/mikowitz/what_the_hex)
 
 <hr/>
 
