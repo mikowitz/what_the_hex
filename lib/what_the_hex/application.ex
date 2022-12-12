@@ -8,7 +8,7 @@ defmodule WhatTheHex.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      WhatTheHex.Repo,
+      # WhatTheHex.Repo,
       # Start the Telemetry supervisor
       WhatTheHexWeb.Telemetry,
       # Start the PubSub system
