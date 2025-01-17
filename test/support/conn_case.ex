@@ -19,25 +19,20 @@ defmodule WhatTheHexWeb.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint WhatTheHexWeb.Endpoint
+
+      use WhatTheHexWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
       import WhatTheHexWeb.ConnCase
-
-      alias WhatTheHexWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint WhatTheHexWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(WhatTheHex.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(WhatTheHex.Repo, {:shared, self()})
-    end
-
+    WhatTheHex.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

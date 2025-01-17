@@ -1,8 +1,8 @@
 defmodule WhatTheHexWeb.PageController do
   use WhatTheHexWeb, :controller
 
-  def index(conn, _params) do
-    render(conn, "index.html")
+  def home(conn, _params) do
+    render(conn, :home)
   end
 
   def show(conn, %{"package" => package}) do
@@ -20,21 +20,21 @@ defmodule WhatTheHexWeb.PageController do
   defp find_link(data) do
     links = data["meta"]["links"]
 
-    case github_link(links) do
-      {_, link} -> link
+    case data["docs_html_url"] do
       nil ->
-        case hexdocs_link(links) do
+        case github_link(links) do
           {_, link} -> link
-          nil -> data["url"]
+          nil -> 
+            case data["html_url"] do
+              nil -> data["url"]
+              link when is_bitstring(link) -> link
+            end
         end
+      link when is_bitstring(link) -> link
     end
   end
 
   defp github_link(links) do
-    Enum.find(links, fn {k, v} -> String.downcase(k) == "github" end)
-  end
-
-  defp hexdocs_link(links) do
-    Enum.find(links, fn {k, v} -> Regex.match?(~r/hexdocs/i, v) end)
+    Enum.find(links, fn {k, _v} -> String.downcase(k) == "github" end)
   end
 end

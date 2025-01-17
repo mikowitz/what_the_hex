@@ -1,22 +1,57 @@
 # This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
+# and its dependencies with the aid of the Config module.
 #
 # This configuration file is loaded before any dependency and
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 config :what_the_hex,
-  ecto_repos: [WhatTheHex.Repo]
+  ecto_repos: [WhatTheHex.Repo],
+  generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
 config :what_the_hex, WhatTheHexWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "JIE5thq3v9i5/bbASETY6gWXskzcjlWPbfhYIZjESFWaq9QNf+sI/oIV4nhdSio5",
-  render_errors: [view: WhatTheHexWeb.ErrorView, accepts: ~w(html json), layout: false],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: WhatTheHexWeb.ErrorHTML, json: WhatTheHexWeb.ErrorJSON],
+    layout: false
+  ],
   pubsub_server: WhatTheHex.PubSub,
-  live_view: [signing_salt: "jBF49YfK"]
+  live_view: [signing_salt: "dLsJ8hUi"]
+
+# Configures the mailer
+#
+# By default it uses the "Local" adapter which stores the emails
+# locally. You can see the emails in your browser, at "/dev/mailbox".
+#
+# For production it's recommended to configure a different adapter
+# at the `config/runtime.exs`.
+config :what_the_hex, WhatTheHex.Mailer, adapter: Swoosh.Adapters.Local
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.17.11",
+  what_the_hex: [
+    args:
+      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
+# Configure tailwind (the version is required)
+config :tailwind,
+  version: "3.4.3",
+  what_the_hex: [
+    args: ~w(
+      --config=tailwind.config.js
+      --input=css/app.css
+      --output=../priv/static/assets/app.css
+    ),
+    cd: Path.expand("../assets", __DIR__)
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -28,4 +63,4 @@ config :phoenix, :json_library, Jason
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env()}.exs"
+import_config "#{config_env()}.exs"

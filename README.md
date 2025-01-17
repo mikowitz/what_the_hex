@@ -1,12 +1,12 @@
 <center>
 
-![WhatTheHex](assets/static/images/wth-logo-for-readme.png)
+![WhatTheHex](/priv/static/images/wth-logo-for-readme.png)
 
 </center>
 
 ## WhatTheHex?
 
-Add an Elixir library name to the URL to be redirected to its repository page.
+  Type a short URL to jump right to any Elixir/Erlang package's [hexdocs.pm](https://hexdocs.pm) page.
 
 ### For example
 
@@ -17,9 +17,9 @@ Add an Elixir library name to the URL to be redirected to its repository page.
 
 ## HowTheHex?
 
-1. Make a request to the [Hex.pm](https://hex.pm) API
-1. Look for a GitHub link in the metadata
+1. Fetch data for the package from the [Hex.pm](https://hex.pm) API
 1. Look for a Hexdocs link in the metadata
+1. Look for a GitHub link in the metadata
 1. Look for a Hex.pm link in the metadata
 1. Redirect to the first link found
 

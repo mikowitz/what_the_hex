@@ -7,14 +7,13 @@ defmodule WhatTheHexWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_what_the_hex_key",
-    signing_salt: "WQ70Zk9C"
+    signing_salt: "+qDxSpYt",
+    same_site: "Lax"
   ]
 
-  socket "/socket", WhatTheHexWeb.UserSocket,
-    websocket: true,
-    longpoll: false
-
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [connect_info: [session: @session_options]],
+    longpoll: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -24,7 +23,7 @@ defmodule WhatTheHexWeb.Endpoint do
     at: "/",
     from: :what_the_hex,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: WhatTheHexWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
