@@ -8,7 +8,7 @@
 import Config
 
 config :what_the_hex,
-  ecto_repos: [WhatTheHex.Repo],
+  ecto_repos: [],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
