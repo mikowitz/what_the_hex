@@ -1,0 +1,54 @@
+<div class="border-grey-100 border-b-2 flex justify-center pb-5">
+  <img src={~p"/images/wth-logo.png"} alt="WTH logo" class="max-h-20"/>
+</div>
+
+<h2 class="text-3xl pt-10 pb-3">WhatTheHex?</h2>
+
+<p>
+  Type a short URL to jump right to any Elixir/Erlang package's
+  <.link class="text-blue-500" href="https://hexdocs.pm">hexdocs.pm</.link>
+  page.
+</p>
+
+<h3 class="text-2xl py-5">For example</h3>
+
+<ul class="list-disc">
+  <%= for package <- ~w(phoenix poison nerves hackney) do %>
+    <% {path, url} = link_for_package(package) %>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={url}>{path}</.link></li>
+  <% end %>
+</ul>
+
+<h2 class="text-3xl pt-10 pb-3">HowTheHex?</h2>
+
+<ol class="list-decimal">
+  <li class="ml-10 mb-1">Fetch data for the package from the <a class="text-blue-500" href="https://hex.pm">Hex.pm</a> API</li>
+  <li class="ml-10 mb-1">Look for a Hexdocs link in the data</li>
+  <li class="ml-10 mb-1">Look for a GitHub link in the data</li>
+  <li class="ml-10 mb-1">Look for a Hex.pm link in the data</li>
+  <li class="ml-10 mb-1">Redirect to the first link found</li>
+</ol>
+
+<h2 class="text-3xl pt-10 pb-3">WhyTheHex?</h2>
+
+<p>
+Inspiration drawn from <a class="text-blue-500" href="https://gem.wtf">gem.wtf</a> and the prior art
+listed on that page
+</p>
+
+<h2 class="text-3xl pt-10 pb-3">WhoTheHex?</h2>
+
+<p>
+  Crafted with ❤️ and <.link class="text-blue-500" href="https://phoenixframework.org/">Phoenix</.link> 
+  by <.link class="text-blue-500" href="http://songsaboutsnow.com">Michael Berkowitz</.link>
+</p>
+
+<h2 class="text-3xl pt-10 pb-3">WhereTheHex?</h2>
+
+<p>
+  Source code lives on <a class="text-blue-500" href="https://github.com/mikowitz/what_the_hex">GitHub</a>
+</p>
+
+<h4 class="text-xl pt-10 pb-3">License</h4>
+
+MIT

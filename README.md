@@ -1,37 +1,18 @@
-<center>
+# WhatTheHex
 
-![WhatTheHex](assets/static/images/wth-logo-for-readme.png)
+To start your Phoenix server:
 
-</center>
+  * Run `mix setup` to install and setup dependencies
+  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
-## WhatTheHex?
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Add an Elixir library name to the URL to be redirected to its repository page.
+Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-### For example
+## Learn more
 
-* [wthex.net/phoenix](https://wthex.net/phoenix)
-* [wthex.net/poison](https://wthex.net/poison)
-* [wthex.net/nerves](https://wthex.net/nerves)
-* [wthex.net/hackney](https://wthex.net/hackney)
-
-## HowTheHex?
-
-1. Make a request to the [Hex.pm](https://hex.pm) API
-1. Look for a GitHub link in the metadata
-1. Look for a Hexdocs link in the metadata
-1. Look for a Hex.pm link in the metadata
-1. Redirect to the first link found
-
-## WhyTheHex?
-
-Inspiration drawn from <a href="https://gem.wtf">gem.wtf</a> and the prior art
-listed on that page
-
-## WhereTheHex?
-
-Source code lives on [GitHub](https://github.com/mikowitz/what_the_hex)
-
-<hr/>
-
-Crafted with ❤️ and <a href="https://phoenixframework.org">Phoenix</a> by <a href="https://github.com/mikowitz">Michael Berkowitz</a>
+  * Official website: https://www.phoenixframework.org/
+  * Guides: https://hexdocs.pm/phoenix/overview.html
+  * Docs: https://hexdocs.pm/phoenix
+  * Forum: https://elixirforum.com/c/phoenix-forum
+  * Source: https://github.com/phoenixframework/phoenix
