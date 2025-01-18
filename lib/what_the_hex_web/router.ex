@@ -18,7 +18,8 @@ defmodule WhatTheHexWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/:package", PageController, :show
+    get "/:package", PageController, :hexdocs
+    get "/gh/:package", PageController, :repo
   end
 
   # Other scopes may use custom stacks.
