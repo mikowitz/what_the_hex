@@ -14,8 +14,17 @@
 
 <ul class="list-disc">
   <%= for package <- ~w(phoenix poison nerves hackney) do %>
-    <% {path, url} = link_for_package(package) %>
-    <li class="ml-10 mb-1"><.link class="text-blue-500" href={url}>{path}</.link></li>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/#{package}"}>{url(~p"/#{package}")}</.link></li>
+  <% end %>
+</ul>
+
+<p class="py-5">
+  Or directly to the package's <.link class="text-blue-500" href="https://github.com">GitHub</.link> repo
+</p>
+
+<ul class="list-disc">
+  <%= for package <- ~w(phoenix poison nerves hackney) do %>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/gh/#{package}"}>{url(~p"/gh/#{package}")}</.link></li>
   <% end %>
 </ul>
 

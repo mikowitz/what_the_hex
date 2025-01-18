@@ -15,6 +15,13 @@
 * [wthex.net/nerves](https://wthex.net/nerves)
 * [wthex.net/hackney](https://wthex.net/hackney)
 
+Or directly to the packages' GitHub repo
+
+* [wthex.net/gh/phoenix](https://wthex.net/gh/phoenix)
+* [wthex.net/gh/poison](https://wthex.net/gh/poison)
+* [wthex.net/gh/nerves](https://wthex.net/gh/nerves)
+* [wthex.net/gh/hackney](https://wthex.net/gh/hackney)
+
 ## HowTheHex?
 
 1. Fetch data for the package from the [Hex.pm](https://hex.pm) API
