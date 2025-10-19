@@ -12,4 +12,8 @@ defmodule WhatTheHexWeb.PageHTML do
   def link_for_package(package) do
     "https://www.wthex.net/" <> package
   end
+
+  def gh_link_for_package(package) do
+    "https://www.wthex.net/gh/" <> package
+  end
 end

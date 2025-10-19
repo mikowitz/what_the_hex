@@ -24,7 +24,7 @@
 
 <ul class="list-disc">
   <%= for package <- ~w(phoenix poison nerves hackney) do %>
-    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/gh/#{package}"}>{link_for_package(package)}</.link></li>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/gh/#{package}"}>{gh_link_for_package(package)}</.link></li>
   <% end %>
 </ul>
 
