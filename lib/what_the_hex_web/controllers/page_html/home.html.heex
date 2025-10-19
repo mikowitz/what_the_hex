@@ -14,7 +14,7 @@
 
 <ul class="list-disc">
   <%= for package <- ~w(phoenix poison nerves hackney) do %>
-    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/#{package}"}>{url(~p"/#{package}")}</.link></li>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/#{package}"}>{link_for_package(package)}</.link></li>
   <% end %>
 </ul>
 
@@ -24,7 +24,7 @@
 
 <ul class="list-disc">
   <%= for package <- ~w(phoenix poison nerves hackney) do %>
-    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/gh/#{package}"}>{url(~p"/gh/#{package}")}</.link></li>
+    <li class="ml-10 mb-1"><.link class="text-blue-500" href={~p"/gh/#{package}"}>{link_for_package(package)}</.link></li>
   <% end %>
 </ul>
 
@@ -48,7 +48,7 @@ listed on that page
 <h2 class="text-3xl pt-10 pb-3">WhoTheHex?</h2>
 
 <p>
-  Crafted with ❤️ and <.link class="text-blue-500" href="https://phoenixframework.org/">Phoenix</.link> 
+  Crafted with ❤️ and <.link class="text-blue-500" href="https://phoenixframework.org/">Phoenix</.link>
   by <.link class="text-blue-500" href="http://songsaboutsnow.com">Michael Berkowitz</.link>
 </p>
 
