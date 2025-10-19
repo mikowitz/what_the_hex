@@ -10,7 +10,7 @@ defmodule WhatTheHexWeb.PageHTML do
   embed_templates "page_html/*"
 
   def link_for_package(package) do
-    url = Endpoint.url() <> "/" <> package
+    url = "https://www.wthex.net/" <> package
     [_, path] = String.split(url, "//")
 
     {path, url}
