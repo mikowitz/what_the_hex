@@ -8,7 +8,7 @@ defmodule WhatTheHexWeb.PageView do
   end
 
   def link_for_package(package) do
-    url = Endpoint.url() <> "/" <> package
+    url = "https://www.wthex.net/" <> package
     [_, path] = String.split(url, "//")
 
     {path, url}
