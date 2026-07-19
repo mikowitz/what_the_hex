@@ -6,15 +6,7 @@ defmodule WhatTheHexWeb.PageController do
   end
 
   def hexdocs(conn, %{"package" => package}) do
-    case HTTPoison.get("https://hex.pm/api/packages/#{package}") do
-      {:ok, %{status_code: 200, body: body}} ->
-        data = Poison.decode!(body)
-        redirect(conn, external: find_link(data))
-      {:ok, %{status_code: 404}} ->
-        conn
-        |> put_flash(:error, "Could not find published Hex package #{package}")
-        |> render("index.html")
-    end
+    redirect(conn, external: "https://#{package}.hexdocs.pm")
   end
 
   def repo(conn, %{"package" => package}) do
@@ -22,6 +14,7 @@ defmodule WhatTheHexWeb.PageController do
       {:ok, %{status_code: 200, body: body}} ->
         data = Poison.decode!(body)
         redirect(conn, external: find_github_link(data))
+
       {:ok, %{status_code: 404}} ->
         conn
         |> put_flash(:error, "Could not find published Hex package #{package}")
@@ -33,11 +26,15 @@ defmodule WhatTheHexWeb.PageController do
     links = data["meta"]["links"]
 
     case github_link(links) do
-      {_, link} when is_bitstring(link) -> link
+      {_, link} when is_bitstring(link) ->
+        link
+
       _ ->
         case data["docs_html_url"] do
-          {_, link} -> link
-          nil -> 
+          {_, link} ->
+            link
+
+          nil ->
             case data["html_url"] do
               nil -> data["url"]
               link when is_bitstring(link) -> link
@@ -52,14 +49,18 @@ defmodule WhatTheHexWeb.PageController do
     case data["docs_html_url"] do
       nil ->
         case github_link(links) do
-          {_, link} -> link
-          nil -> 
+          {_, link} ->
+            link
+
+          nil ->
             case data["html_url"] do
               nil -> data["url"]
               link when is_bitstring(link) -> link
             end
         end
-      link when is_bitstring(link) -> link
+
+      link when is_bitstring(link) ->
+        link
     end
   end
 
